@@ -46,7 +46,7 @@ console.log('b est-il un diviseur de a ? (4 et 2) ',is_div(4, 2));
 function is_leap(year: number): boolean {
     return year % 4 === 0 && year % 100 !== 0 || year % 400 === 0;
 }
-console.log('Est-ce une année bissextile ? (2020) ', is_leap(2020));
+console.log('Est-ce une année bissextile ? (2020) ', is_leap(2020), '(1900) ? ', is_leap(1900));
 
 //i. Écrire une fonction delta qui prend trois coefficients a, b et c et qui calcule le coefficient 
 //delta du polynôme ax²+bx+c tel que delta = b² - 4ac.
