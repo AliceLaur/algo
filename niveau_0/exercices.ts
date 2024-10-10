@@ -50,7 +50,7 @@ console.log('Est-ce une année bissextile ? (2020) ', is_leap(2020), '(1900) ? '
 
 //i. Écrire une fonction delta qui prend trois coefficients a, b et c et qui calcule le coefficient 
 //delta du polynôme ax²+bx+c tel que delta = b² - 4ac.
-function delta(a: number, b:number, c:number) {
+function delta(a: number, b:number, c:number) : number {
     let result: number = b*b - 4*a*c
     return result
 }
