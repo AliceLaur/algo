@@ -1,3 +1,4 @@
+import { log } from 'console';
 import readlineSync = require('readline-sync');
 
 // // Écrire une fonction hello qui demande à l’utilisateur d’entrer son nom et affiche une salutation reprenant son nom.
@@ -29,19 +30,50 @@ import readlineSync = require('readline-sync');
 // “Scissor”. À l’aide de la fonction Math.random(), faites également choisir votre programme et
 // indiquez au joueur s’il a gagné ou perdu. Recommencer jusqu’à ce que le joueur gagne.
 function inputPlayed(): number {
-    let choice: string[] = ['Rock', 'Paper', 'Scissor']
-    let input = readlineSync.keyInSelect(choice, 'Rock, paper, scissor ?')
+    let choice: string[] = ['Paper', 'Scissor', 'Rock']
+    let input = readlineSync.keyInSelect(choice, 'What do you want to play ?')
     return input
 }
+// function inputProg(): number {
+//     let input = Math.floor(Math.random() * 3)
+//     if (input == 0) {
+//             Math.floor(Math.random() * 3)
+//     }
+//     console.log(input);
+//     return input
+// }
+function inputProg() : number {
+    let input = Math.floor(Math.random() * 4) + 1;
+    switch (input) {
+        case 1 :
+            console.log('Paper')
+            break;
+        case 2 : 
+            console.log('Scissor')
+            break;
+        case 3 : 
+            console.log('Rock')
+            break;
+        default : 'play again'      
+    } 
+    return input
+}
+
 function RPS(): string {
-    let inputPlayed_ = inputPlayed()
-    let inputPlayer = inputPlayed().valueOf()
-    let inputProg = Math.floor(Math.random() * 3)
-    while (inputPlayer < inputProg) {
-        console.log(inputProg);
-        inputPlayed_
-    }
-    console.log(inputProg);
+    let inputPlayer = inputPlayed()
+    let inputProgram = inputProg()
+    while (((inputPlayer +1)%3) == inputProgram) 
+    {
+        inputPlayer = inputPlayed()
+        inputProgram = inputProg()
+    } 
     return 'You win !'
 }
 console.log(RPS());
+
+//d. Guess a Number.
+// L’objectif est de choisir aléatoirement un nombre compris entre 1 et 1000 et de faire deviner à
+// l’utilisateur jusqu’à ce qu’il trouve, lui indiquant à chaque fois s’il a deviné “trop grand” ou
+// “trop petit”. Bonus : compter en combien de coups le joueur a deviné.
+
+//function guessANumber(): string {
